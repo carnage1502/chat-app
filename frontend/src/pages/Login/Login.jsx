@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Signup from "../Signup/Signup";
 const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
@@ -12,11 +11,11 @@ const Login = () => {
         <form>
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text">Email</span>
             </label>
             <input
               type="text"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
               className="w-full input input-bordered h-10"
             />
           </div>
