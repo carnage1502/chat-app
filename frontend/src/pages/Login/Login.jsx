@@ -11,11 +11,11 @@ const Login = () => {
         <form>
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Email</span>
+              <span className="text-base label-text">Username</span>
             </label>
             <input
               type="text"
-              placeholder="Enter your email"
+              placeholder="Enter your username"
               className="w-full input input-bordered h-10"
             />
           </div>
