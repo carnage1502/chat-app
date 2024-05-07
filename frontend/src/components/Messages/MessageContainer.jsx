@@ -1,25 +1,30 @@
+import { useEffect } from "react";
+import useConversation from "../../zustand/useConversation";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
 
 const MessageContainer = () => {
-  const noChatSelected = true;
+  const { selectedConversation, setSelectedConversation } = useConversation();
+
+  useEffect(() => {
+    return () => setSelectedConversation(null);
+  }, [setSelectedConversation]);
   return (
     <div className="md:min-w-[450px] flex flex-col">
-      {noChatSelected ? (
+      {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           <div className="bg-[#222831] px-4 py-2 mb-2 flex gap-3">
             <div className="chat-image avatar online">
               <div className="w-10 rounded-full">
-                <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="avatar"
-                />
+                <img src={selectedConversation.profilePic} alt="avatar" />
               </div>
             </div>
-            <span className="font-bold mt-1 text-lg">John Doe</span>
+            <span className="font-bold mt-1 text-lg">
+              {selectedConversation.fullName}
+            </span>
           </div>
 
           <Messages />
